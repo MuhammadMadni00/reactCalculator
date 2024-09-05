@@ -26,7 +26,7 @@ export default class OperatorsNumSection extends React.Component {
           /
         </button>
         <button
-          value="*"
+          value="x"
           onClick={(e) => this.props.onClick(e.target.value)}
           className="operators"
         >
@@ -118,6 +118,27 @@ export default class OperatorsNumSection extends React.Component {
           className="numbers"
         >
           0
+        </button>
+        <button
+          value="%"
+          onClick={(e) => this.props.onClick(e.target.value)}
+          className="operators"
+        >
+          %
+        </button>
+        <button
+          value="("
+          onClick={(e) => this.props.onClick(e.target.value)}
+          className="operators"
+        >
+          (
+        </button>
+        <button
+          value=")"
+          onClick={(e) => this.props.onClick(e.target.value)}
+          className="operators"
+        >
+          )
         </button>
 
         <button
