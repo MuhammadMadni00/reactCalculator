@@ -45,3 +45,19 @@ body {
   font-size: 3rem;
   letter-spacing: 2px;
 }
+.history-section {
+  background-color: #333; /* Optional: to make the white text stand out */
+  color: white;
+  padding: 10px; /* Optional: to add some spacing */
+  border-radius: 5px; /* Optional: to add rounded corners */
+}
+
+.history-section ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+}
+
+.history-section li {
+  margin: 5px 0; /* Add some spacing between items */
+}
+

@@ -5,16 +5,21 @@ import OperatorsNumSection from "./operators-num-section/operators-num-section.j
 class CalculatorApp extends Component {
   state = {
     value: "0",
+    history: [], 
   };
 
   ButtonPressed = (btn) => {
-     const operators = ["+", "-", "*", "/"];
+    const operators = ["+", "-", "*", "/"];
+
     if (btn === "=") {
       try {
         const expression = this.state.value.replace(/x/g, "*");
-        this.setState({ 
-          value: eval(expression).toString(), // Ensure result is converted to string
-        });
+        const result = eval(expression).toString();
+
+        this.setState((prevState) => ({
+          value: result,
+          history: [result, ...prevState.history].slice(0, 3), // Keep only the last 3 results
+        }));
       } catch (error) {
         this.setState({
           value: "Error",
@@ -40,9 +45,8 @@ class CalculatorApp extends Component {
     else {
       const lastChar = this.state.value.slice(-1);
       if (operators.includes(lastChar) && operators.includes(btn)) {
-        return; 
+        return;
       }
- 
       if (this.state.value === "0" && btn !== ".") {
         this.setState({
           value: btn,
@@ -54,13 +58,22 @@ class CalculatorApp extends Component {
       }
     }
   };
-  
+
   render() {
     return (
       <div className="calculator-app">
         <div className="result-section">
           <h1> {this.state.value} </h1>
         </div>
+        <div className="history-section">
+          <h3>History (Last 3 Results):</h3>
+          <ul>
+            {this.state.history.map((result, index) => (
+              <li key={index}>{result}</li>
+            ))}
+          </ul>
+        </div>
+
         <OperatorsNumSection onClick={this.ButtonPressed} />
       </div>
     );
