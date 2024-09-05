@@ -18,7 +18,7 @@ class CalculatorApp extends Component {
 
         this.setState((prevState) => ({
           value: result,
-          history: [result, ...prevState.history].slice(0, 3), // Keep only the last 3 results
+          history: [result, ...prevState.history].slice(0, 3),
         }));
       } catch (error) {
         this.setState({

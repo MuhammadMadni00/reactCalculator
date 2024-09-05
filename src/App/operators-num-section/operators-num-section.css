@@ -29,7 +29,7 @@
 
 .operators {
   background-color: #fe9200;
-  color: white;
+  color: rgb(255, 255, 255);
 }
 
 .operators:active {
